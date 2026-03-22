@@ -2,16 +2,40 @@
 # Use on the Lock Screen
 def on_button_pressed_a():
     led.stop_animation()
-    keyboard.send_string("A") # Even though you think its useless, it actually is on the lock screen
+    keyboard.send_string("A") # If you remove this, it becomes way less convenient
     basic.pause(500)
-    keyboard.send_string("00000") # Your password here
+    keyboard.send_string("0000")
+    basic.pause(500)
+    led.plot(4, 1)
+    basic.pause(100)
+    led.plot(3, 2)
+    basic.pause(100)
+    led.plot(2, 3)
+    basic.pause(100)
+    led.plot(1, 4)
+    basic.pause(100)
+    led.plot(0, 3)
+    basic.pause(2000)
+    basic.show_icon(IconNames.HAPPY)
 input.on_button_pressed(Button.A, on_button_pressed_a)
-# Use for passkeys
+# Use for Passkeys
 def on_button_pressed_b():
     led.stop_animation()
-    keyboard.send_string("00000") # Your password here
-    control.wait_micros(6000)
+    keyboard.send_string("0000")
+    basic.pause(500)
+    led.plot(4, 1)
+    basic.pause(100)
+    led.plot(3, 2)
+    basic.pause(100)
+    led.plot(2, 3)
+    basic.pause(100)
+    led.plot(1, 4)
+    basic.pause(100)
+    led.plot(0, 3)
+    basic.pause(2000)
+    basic.show_icon(IconNames.HAPPY)
 input.on_button_pressed(Button.B, on_button_pressed_b)
 
-keyboard.start_keyboard_service()
 basic.show_icon(IconNames.HAPPY)
+basic.pause(100)
+keyboard.start_keyboard_service()
